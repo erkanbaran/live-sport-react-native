@@ -9,9 +9,7 @@ const App = () => {
   const {commentaries, keyMoments} = apiReponse.data as ICommentaryResponse;
 
   const [isKeyMomentsVisible, setIsKeyMomentsVisible] = useState(false);
-  const [highlightItemId, setHighlightItemId] = useState<
-    number | null
-  >(null);
+  const [highlightItemId, setHighlightItemId] = useState<number | null>(null);
 
   const toggleKeyMoments = () => {
     setIsKeyMomentsVisible(!isKeyMomentsVisible);

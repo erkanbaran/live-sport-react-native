@@ -30,6 +30,7 @@ export default StyleSheet.create<Styles>({
     height: 34,
     borderRadius: 17,
     borderWidth: 2,
+    padding: 8,
     borderColor: '#333',
     backgroundColor: '#fff',
     justifyContent: 'center',
