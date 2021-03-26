@@ -1,13 +1,13 @@
 export interface ICommentaryItem {
   id: number;
   minute: number;
-  message: string;
+  commentary: string;
 }
 
 export interface IKeyMomentItem {
   id: number;
   minute: number;
-  message: string;
+  commentary: string;
 }
 
 export interface ICommentaryResponse {

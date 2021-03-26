@@ -56,17 +56,17 @@
       {
         "id": 5,
         "minute": 12,
-        "message": "Yellow card"
+        "commentary": "Yellow card"
       },
       {
         "id": 8,
         "minute": 21,
-        "message": "Goal"
+        "commentary": "Goal"
       },
       {
         "id": 9,
         "minute": 28,
-        "message": "Save"
+        "commentary": "Save"
       }
     ]
   }
