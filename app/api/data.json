@@ -34,7 +34,7 @@
       {
         "id": 7,
         "minute": 47,
-        "commentary": "Dier goes into the book in what is the first yellow card of the game."
+        "commentary": "Dier goes into the book in what is the first red card of the game."
       },
       {
         "id": 8,
@@ -49,22 +49,22 @@
       {
         "id": 10,
         "minute": 88,
-        "commentary": "AND THERE IS THE GOAL! No mistake from Kane, as - after initially missing Son's cross - he gets back up off the terf to cushion in Tripper's pinpoint cut-back."
+        "commentary": "No mistake from Kane, as - after initially missing Son's cross - he gets back up off the terf to cushion in Tripper's pinpoint cut-back."
       }
     ],
     "keyMoments": [
       {
-        "id": 5,
+        "commentaryId": 1,
         "minute": 12,
         "commentary": "Yellow card"
       },
       {
-        "id": 8,
+        "commentaryId": 4,
         "minute": 21,
         "commentary": "Goal"
       },
       {
-        "id": 9,
+        "commentaryId": 5,
         "minute": 28,
         "commentary": "Save"
       }

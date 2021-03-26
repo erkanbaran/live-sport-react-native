@@ -5,7 +5,7 @@ export interface ICommentaryItem {
 }
 
 export interface IKeyMomentItem {
-  id: number;
+  commentaryId: number;
   minute: number;
   commentary: string;
 }

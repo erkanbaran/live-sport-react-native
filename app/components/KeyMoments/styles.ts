@@ -1,11 +1,16 @@
-import {StyleSheet, ViewStyle} from 'react-native';
+import {StyleSheet, ViewStyle, TextStyle} from 'react-native';
 
 interface Styles {
+  title: TextStyle;
   keyMoments: ViewStyle;
   chevronButton: ViewStyle;
 }
 
 export default StyleSheet.create<Styles>({
+  title: {
+    fontSize: 24,
+    textAlign: 'center',
+  },
   keyMoments: {
     position: 'absolute',
     zIndex: 2,

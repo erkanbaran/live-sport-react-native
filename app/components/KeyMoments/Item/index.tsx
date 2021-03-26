@@ -11,17 +11,17 @@ interface Props {
 }
 
 export default function Item({
-  item: {commentary, minute, id},
+  item: {commentary, minute, commentaryId},
   onPressKeyMomentItem,
 }: Props) {
-  const onPress = () => onPressKeyMomentItem(id);
+  const onPress = () => onPressKeyMomentItem(commentaryId);
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.keyMomentsItem}>
         <View style={styles.timeContainer}>
-          <Text>{minute}</Text>
+          <Text style={styles.time}>{minute}</Text>
         </View>
-        <Text>{commentary}</Text>
+        <Text style={styles.commentary}>{commentary}</Text>
       </View>
     </TouchableOpacity>
   );

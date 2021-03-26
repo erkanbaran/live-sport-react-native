@@ -9,16 +9,16 @@ interface IProps {
   item: ICommentaryItem;
   isFirstItem: boolean;
   isLastItem: boolean;
-  activeCommentaryItemId: number | null;
+  highlightItemId: number | null;
 }
 
 export default function Item({
   item: {minute, commentary, id},
   isFirstItem,
   isLastItem,
-  activeCommentaryItemId,
+  highlightItemId,
 }: IProps) {
-  const isActive = id === activeCommentaryItemId;
+  const isActive = id === highlightItemId;
   return (
     <View style={[styles.item, isActive && styles.activeItem]}>
       <View style={styles.minuteSection}>

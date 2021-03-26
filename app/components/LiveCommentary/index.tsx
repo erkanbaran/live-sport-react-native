@@ -7,22 +7,31 @@ import styles from './styles';
 
 interface IProps {
   commentaries: ICommentaryItem[];
-  activeCommentaryItemId: number | null;
+  highlightItemId: number | null;
   isKeyMomentsVisible: boolean;
 }
 
 export default function LiveCommentary({
   commentaries,
-  activeCommentaryItemId,
+  highlightItemId,
   isKeyMomentsVisible,
 }: IProps) {
   const listRef = useRef<FlatList>(null);
+
+  useEffect(() => {
+    const itemIndex = commentaries.findIndex(
+      item => item.id === highlightItemId,
+    );
+    if (listRef.current !== null && itemIndex !== -1) {
+      listRef.current.scrollToIndex({index: itemIndex});
+    }
+  }, [highlightItemId]);
 
   const keyMomentsHeight = isKeyMomentsVisible ? 180 : 90;
 
   return (
     <>
-      <Text>Live commentary</Text>
+      <Text style={styles.title}>Live commentary</Text>
       <FlatList
         ref={listRef}
         data={commentaries}
@@ -31,7 +40,7 @@ export default function LiveCommentary({
             item={item}
             isFirstItem={index === 0}
             isLastItem={index === commentaries.length - 1}
-            activeCommentaryItemId={activeCommentaryItemId}
+            highlightItemId={highlightItemId}
           />
         )}
         keyExtractor={item => `${item.id}`}

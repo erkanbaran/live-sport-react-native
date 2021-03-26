@@ -2,33 +2,31 @@ import React, {useRef, useEffect} from 'react';
 import {View, Text, FlatList, TouchableOpacity} from 'react-native';
 
 import {IKeyMomentItem} from '../../models/api/commentary';
+import DownArrowIcon from '../icons/downArrow';
+import UpArrowIcon from '../icons/upArrow';
 import Item from './Item';
 import styles from './styles';
 
 interface IProps {
   keyMoments: IKeyMomentItem[];
-  onPressKeyMomentItem(id: number): void;
-  toggleKeyMomentsVisibility(): void;
+  setHighlightItemId(id: number): void;
+  toggleKeyMoments(): void;
   isKeyMomentsVisible: boolean;
 }
 
 export default function KeyMoments({
   keyMoments,
-  onPressKeyMomentItem,
-  toggleKeyMomentsVisibility,
+  setHighlightItemId,
+  toggleKeyMoments,
   isKeyMomentsVisible,
 }: IProps) {
-  const chevronIcon = isKeyMomentsVisible ? 'v' : '>';
-
   const keyMomentsHeight = isKeyMomentsVisible ? 180 : 90;
 
   return (
     <View style={[styles.keyMoments, {height: keyMomentsHeight}]}>
-      <Text>Key moments</Text>
-      <TouchableOpacity
-        onPress={toggleKeyMomentsVisibility}
-        style={styles.chevronButton}>
-        <Text>{chevronIcon}</Text>
+      <Text style={styles.title}>Key moments</Text>
+      <TouchableOpacity onPress={toggleKeyMoments} style={styles.chevronButton}>
+        {isKeyMomentsVisible ? <DownArrowIcon /> : <UpArrowIcon />}
       </TouchableOpacity>
       {isKeyMomentsVisible && (
         <>
@@ -36,7 +34,7 @@ export default function KeyMoments({
             <Item
               item={item}
               key={index}
-              onPressKeyMomentItem={onPressKeyMomentItem}
+              onPressKeyMomentItem={() => setHighlightItemId(item.commentaryId)}
             />
           ))}
         </>
