@@ -9,19 +9,11 @@
  */
 
 import React, {useState} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
 
 import * as apiReponse from './api/data.json';
 import {ICommentaryResponse} from './models/api/commentary';
-import {LiveCommentary} from './components';
+import {KeyMoments, LiveCommentary} from './components';
 
 const App = () => {
   const {commentaries, keyMoments} = apiReponse.data as ICommentaryResponse;
@@ -31,11 +23,27 @@ const App = () => {
     number | null
   >(null);
 
+  const toggleKeyMomentsVisibility = () => {
+    setIsKeyMomentsVisible(!isKeyMomentsVisible);
+    setActiveCommentaryItemId(null);
+  };
+
+  const onPressKeyMomentItem = (id: number) => {
+    // flatListRef?.current?.scrollToIndex({index: id, animated: true});
+    setActiveCommentaryItemId(id);
+  };
+
   return (
     <SafeAreaView>
       <LiveCommentary
         commentaries={commentaries}
         activeCommentaryItemId={activeCommentaryItemId}
+        isKeyMomentsVisible={isKeyMomentsVisible}
+      />
+      <KeyMoments
+        keyMoments={keyMoments}
+        onPressKeyMomentItem={onPressKeyMomentItem}
+        toggleKeyMomentsVisibility={toggleKeyMomentsVisibility}
         isKeyMomentsVisible={isKeyMomentsVisible}
       />
     </SafeAreaView>
