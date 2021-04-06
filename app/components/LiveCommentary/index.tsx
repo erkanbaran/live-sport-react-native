@@ -1,5 +1,5 @@
 import React, {useRef, useEffect} from 'react';
-import {View, Text, FlatList} from 'react-native';
+import {Dimensions, Text, FlatList} from 'react-native';
 
 import {ICommentaryItem} from '../../models/api/commentary';
 import Item from './Item';
@@ -27,7 +27,9 @@ export default function LiveCommentary({
     }
   }, [highlightItemId]);
 
-  const keyMomentsHeight = isKeyMomentsVisible ? 180 : 90;
+  const {height} = Dimensions.get('window');
+
+  const keyMomentsHeight = isKeyMomentsVisible ? height / 4 : 100;
 
   return (
     <>

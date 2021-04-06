@@ -22,7 +22,7 @@ export default function Item({
   return (
     <View style={[styles.item, isActive && styles.activeItem]}>
       <View style={styles.minuteSection}>
-        {!isFirstItem && <View style={styles.line} />}
+        <View style={[styles.line, isFirstItem && {backgroundColor: '#fff'}]} />
         <View style={styles.minuteContainer}>
           <Text>{minute}</Text>
         </View>

@@ -19,7 +19,7 @@ export default StyleSheet.create<Styles>({
   },
   minuteSection: {
     width: 70,
-    alignItems: 'center',
+    alignItems: 'center'
   },
   minuteContainer: {
     width: 34,

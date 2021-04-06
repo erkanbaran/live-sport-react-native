@@ -1,5 +1,5 @@
-import React, {useRef, useEffect} from 'react';
-import {View, Text, FlatList, TouchableOpacity} from 'react-native';
+import React from 'react';
+import {View, Text, Dimensions, TouchableOpacity} from 'react-native';
 
 import {IKeyMomentItem} from '../../models/api/commentary';
 import DownArrowIcon from '../icons/downArrow';
@@ -20,7 +20,8 @@ export default function KeyMoments({
   toggleKeyMoments,
   isKeyMomentsVisible,
 }: IProps) {
-  const keyMomentsHeight = isKeyMomentsVisible ? 180 : 90;
+  const {height} = Dimensions.get('window');
+  const keyMomentsHeight = isKeyMomentsVisible ? height / 4 : 100;
 
   return (
     <View style={[styles.keyMoments, {height: keyMomentsHeight}]}>
